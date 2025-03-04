@@ -12,7 +12,8 @@ export class TicketRoutes {
         // controller instance
         const ticketController = new TicketController
 
-        router.get('/api/tickets', ticketController.getTickets)
+        router.get('/api/tickets', ticketController.getTickets);
+        router.post('/api/tickets', ticketController.createTicket);
 
         return router;
     };
