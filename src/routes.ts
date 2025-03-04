@@ -8,7 +8,7 @@ export class AppRoutes {
         
         const router = Router();
 
-        router.use('/', TicketRoutes.routes )
+        router.use('/api/tickets', TicketRoutes.routes )
 
         return router;
     };

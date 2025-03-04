@@ -12,8 +12,15 @@ export class TicketRoutes {
         // controller instance
         const ticketController = new TicketController
 
-        router.get('/api/tickets', ticketController.getTickets);
-        router.post('/api/tickets', ticketController.createTicket);
+        router.get( '/', ticketController.getTickets) ;
+        router.get('/:id', ticketController.getTicketById );
+
+        router.post( '/', ticketController.createTicket );
+
+
+        router.put( '/:id', ticketController.updateTicket );
+
+        router.delete( '/:id', ticketController.deleteTicket );
 
         return router;
     };
