@@ -1,15 +1,17 @@
-import { sumar } from "./presentation/server";
-
-
-console.log('From server.ts');
-
-const valor = sumar(1,2);
-console.log(valor);
+import { Server } from "./presentation/server";
+import { envs } from './config/envs'
+import { AppRoutes } from "./routes";
 
 ( async () => {
-    main()
-})()
+    main();
+})();
 
 function main() {
-    
-}
+
+    const server = new Server({
+        port: envs.PORT,
+        routes: AppRoutes.routes,
+    });
+
+    server.start();
+};
