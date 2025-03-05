@@ -1,5 +1,5 @@
 import express, { Router } from 'express';
-
+import { ConsoleLogger } from '../infrastructure/logging/console-logger'
 
 interface Options {
     port: number;
@@ -7,7 +7,9 @@ interface Options {
 };
 
 
+const logger = new ConsoleLogger
 export class Server {
+    
 
     // express instance
     private app = express();
@@ -34,8 +36,7 @@ export class Server {
         
 
         this.app.listen(this.port, () => {
-            console.log(`Server running on port ${ this.port }`)
+            logger.info(`Server running on port ${ this.port }`)
         });
-
     };
 };
