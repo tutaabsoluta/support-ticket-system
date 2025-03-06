@@ -50,7 +50,7 @@ export class TicketController {
 
         const id = +req.params.id;
 
-        const [error, updateTodoDto] = UpdateTicketDto.create({...req.body, id});
+        const [error, updateTicketDto] = UpdateTicketDto.create({...req.body, id});
         if ( error ) return res.status(400).json({ error });
         
         const ticket = await prisma.ticket.findFirst({
@@ -59,12 +59,12 @@ export class TicketController {
     
         if ( !ticket ) return res.status( 404 ).json( { error: `Todo with id ${ id } not found` } );
     
-        const updatedTodo = await prisma.ticket.update({
+        const updatedTicket = await prisma.ticket.update({
           where: { id },
-          data: updateTodoDto!.values
+          data: updateTicketDto!.values
         });
       
-        res.json( updatedTodo );
+        res.json( updatedTicket );
     
     }
 

@@ -17,7 +17,7 @@ export class TicketEntity {
         return this.status === 'CLOSED'
     };
 
-    public static fromObject( object: {[key: string]: any} ): TicketEntity {
+    public static fromObject( object: { [key: string]: any } ): TicketEntity {
 
         const { id, author, text, severity, createdAt } = object;
 

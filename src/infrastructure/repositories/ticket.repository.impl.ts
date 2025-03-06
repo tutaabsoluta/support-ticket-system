@@ -9,20 +9,24 @@ export class TicketRepositoryImpl implements TicketRepository {
     ) 
     {}
 
-    create(createTicketDto: CreateTicketDto): Promise<TicketEntity> {
-        throw new Error("Method not implemented.");
-    }
+    create( createTicketDto: CreateTicketDto ): Promise<TicketEntity> {
+        return this.datasource.create( createTicketDto );
+    };
+
     getAll(): Promise<TicketEntity[]> {
         return this.datasource.getAll();
-    }
-    getById(id: number): Promise<TicketEntity> {
-        throw new Error("Method not implemented.");
-    }
-    update(updateTicketDto: UpdateTicketDto): Promise<TicketEntity> {
-        throw new Error("Method not implemented.");
-    }
-    delete(id: number): Promise<TicketEntity> {
-        throw new Error("Method not implemented.");
-    }
+    };
 
-}
+    getById( id: number ): Promise<TicketEntity> {
+        return this.datasource.getById( id );
+    };
+
+    update( updateTicketDto: UpdateTicketDto ): Promise<TicketEntity> {
+        return this.datasource.update( updateTicketDto );
+    };
+
+    delete( id: number ): Promise<TicketEntity> {
+        return this.datasource.delete( id );
+    };
+    
+};
