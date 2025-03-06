@@ -30,7 +30,7 @@ export class Server {
 
         // Middlewares
         this.app.use( express.json() );
-
+        this.app.use( express.urlencoded({ extended: true }) );
         // Routes
         this.app.use( this.routes );
         

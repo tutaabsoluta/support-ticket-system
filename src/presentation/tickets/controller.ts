@@ -1,6 +1,6 @@
 import { Request, Response } from "express";
 import { prisma } from "../../data/postgres";
-import { CreateTicketDto } from "../../domain/dtos";
+import { CreateTicketDto, UpdateTicketDto } from "../../domain/dtos";
 
 
 export class TicketController {
@@ -50,27 +50,22 @@ export class TicketController {
 
         const id = +req.params.id;
 
-        if (isNaN(id)) return res.status(400).json({ error: 'Invalid id argument' });
-
-        const ticket = prisma.ticket.findFirst({
-            where: { id }
+        const [error, updateTodoDto] = UpdateTicketDto.create({...req.body, id});
+        if ( error ) return res.status(400).json({ error });
+        
+        const ticket = await prisma.ticket.findFirst({
+          where: { id }
         });
-
-        if (!ticket) return res.status(404).json({ error: `Ticket with id ${id} not found` });
-
-        const { author, text, severity, createdAt } = req.body;
-
-        const updatedTicket = await prisma.ticket.update({
-            where: { id },
-            data: {
-                author,
-                text,
-                severity,
-                createdAt: (createdAt) ? new Date(createdAt) : undefined
-            }
+    
+        if ( !ticket ) return res.status( 404 ).json( { error: `Todo with id ${ id } not found` } );
+    
+        const updatedTodo = await prisma.ticket.update({
+          where: { id },
+          data: updateTodoDto!.values
         });
-
-        res.json(updatedTicket)
+      
+        res.json( updatedTodo );
+    
     }
 
     // DELETE
