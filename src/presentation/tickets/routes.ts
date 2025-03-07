@@ -1,5 +1,7 @@
 import { Router } from "express";
 import { TicketController } from "./controller";
+import { TicketDatasourceImpl } from "../../infrastructure/datasources/ticket.datasource.impl";
+import { TicketRepositoryImpl } from "../../infrastructure/repositories/ticket.repository.impl";
 
 
 export class TicketRoutes {
@@ -9,8 +11,11 @@ export class TicketRoutes {
         // router instance
         const router = Router();
 
-        // controller instance
-        const ticketController = new TicketController
+
+
+        const datasource = new TicketDatasourceImpl();
+        const ticketRepository = new TicketRepositoryImpl( datasource );
+        const ticketController = new TicketController(ticketRepository);
 
         router.get( '/', ticketController.getTickets) ;
         router.get('/:id', ticketController.getTicketById );

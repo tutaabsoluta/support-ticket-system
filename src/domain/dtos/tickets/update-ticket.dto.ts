@@ -35,12 +35,11 @@ export class UpdateTicketDto {
         if ( !id || isNaN(id) ) return ['The id must be a valid number'];
 
         if ( createdAt ) {
-          newCreatedAt = new Date( createdAt );
-
+          newCreatedAt = new Date( createdAt)
           if ( newCreatedAt.toString() === 'Invalid Date' ) {
-            return [ 'Created at must be a valid date', undefined ]
-          };
-        };
+            return ['CreatedAt must be a valid date']
+          }
+        }
 
 
         

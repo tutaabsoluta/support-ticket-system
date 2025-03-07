@@ -20,11 +20,6 @@ export class CreateTicketDto {
 
         if ( !severity ) return [ 'The severity property is required', undefined ];
 
-        // const validSeverities = ['LOW', 'MEDIUM', 'HIGH'];
-        // if (!validSeverities.includes(severity)) {
-        //     return ['The severity property must be one of: LOW, MEDIUM, HIGH', undefined];
-        // }
-        
         return [ undefined, new CreateTicketDto( author, text, severity ) ];
     };
 };

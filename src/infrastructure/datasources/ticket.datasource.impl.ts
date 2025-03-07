@@ -6,14 +6,14 @@ import { CreateTicketDto, TicketDatasource, TicketEntity, UpdateTicketDto } from
 export class TicketDatasourceImpl implements TicketDatasource {
 
     // Create
-    async create(createTicketDto: CreateTicketDto): Promise<TicketEntity> {
-
-        const newTicket = await prisma.ticket.create({
-            data: createTicketDto!
+    async create( createTicketDto: CreateTicketDto ): Promise<TicketEntity> {
+        const todo = await prisma.ticket.create({
+          data: createTicketDto!
         });
-
-        return TicketEntity.fromObject( newTicket );
-    };
+    
+        return TicketEntity.fromObject( todo );
+      }
+    
 
     // Get
     async getAll(): Promise<TicketEntity[]> {
@@ -38,9 +38,7 @@ export class TicketDatasourceImpl implements TicketDatasource {
     // Update
     async update( updateTicketDto: UpdateTicketDto ): Promise<TicketEntity> {
 
-        const ticket = await this.getById(updateTicketDto.id);
-        if (!ticket) throw `Ticket with id ${updateTicketDto.id} not found`;
-
+        await this.getById( updateTicketDto.id );
         const updatedTicket = await prisma.ticket.update({
             where: { id: updateTicketDto.id },
             data: updateTicketDto!.values

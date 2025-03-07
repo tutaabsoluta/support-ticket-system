@@ -9,8 +9,8 @@ export class TicketEntity {
         public author: string,
         public text: string,
         public severity: 'LOW' | 'MEDIUM' | 'HIGH',
-        public status?: 'OPEN' | 'IN_PROGRESS' | 'CLOSED',
-        public createdAt?: Date | null,
+        public status: 'OPEN' | 'IN_PROGRESS' | 'CLOSED',
+        public createdAt: Date | null,
     ) {}
 
     get isClosed(): boolean {
@@ -19,7 +19,7 @@ export class TicketEntity {
 
     public static fromObject( object: { [key: string]: any } ): TicketEntity {
 
-        const { id, author, text, severity, createdAt } = object;
+        const { id, author, text, severity, createdAt, status } = object;
 
         if ( !id ) throw 'The id is required';
         if ( !author ) throw 'The author is required';
@@ -41,6 +41,7 @@ export class TicketEntity {
             author,
             text,
             severity,
+            status,
             createdAt,
         );
     };
