@@ -10,7 +10,7 @@ export class Server {
     
 
     // express instance
-    private app = express();
+    public readonly app = express();
 
     // Server props
     private readonly port: number;
