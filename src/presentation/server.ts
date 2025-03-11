@@ -11,6 +11,7 @@ export class Server {
 
     // express instance
     public readonly app = express();
+    private serverListener: any;
 
     // Server props
     private readonly port: number;
@@ -35,8 +36,13 @@ export class Server {
         this.app.use( this.routes );
         
 
-        this.app.listen(this.port, () => {
+        this.serverListener = this.app.listen(this.port, () => {
             console.log(`Server running on port ${ this.port }`)
-        });
+        })
+
+    };
+
+    public close() {
+        this.serverListener?.close();
     };
 };
