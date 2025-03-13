@@ -61,7 +61,6 @@ export class TicketController {
     }
 
     // Delete
-    // TODO: id not found si ya se elimino
     public  deleteTicket = (req: Request, res: Response) => {
 
         const id = +req.params.id;
