@@ -74,4 +74,40 @@ describe('test routes.ts', () => {
     
 
       });
+
+      test('should create a new ticket /api/tickets/', async () => { 
+
+        const { body } = await request( testServer.app )
+            .post('/api/tickets')
+            .send( ticket1 )
+            .expect(201)
+
+        expect(body).toMatchObject(ticket1)
+
+       });
+
+      test('should return an error if text is not present /api/tickets/', async () => { 
+
+        const { body } = await request( testServer.app )
+            .post('/api/tickets')
+            .send({})
+            .expect(400)
+
+        expect( body ).toEqual({
+            error: 'The author property is required'
+        })
+
+       });
+      test('should return an error if text is EMPTY /api/tickets/', async () => { 
+
+        const { body } = await request( testServer.app )
+            .post('/api/tickets')
+            .send({ text: '' })
+            .expect(400)
+
+        expect( body ).toEqual({
+            error: 'The author property is required'
+        })
+
+       });
  });

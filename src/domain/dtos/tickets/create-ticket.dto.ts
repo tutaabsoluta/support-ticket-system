@@ -14,11 +14,11 @@ export class CreateTicketDto {
 
         const { author, text, severity } = props;
 
-        if ( !author ) return [ 'The author property is required', undefined ];
+        if ( !author || author.length === 0 ) return [ 'The author property is required', undefined ];
 
-        if ( !text ) return [ 'The text property is required', undefined ];
+        if ( !text || text.length === 0 ) return [ 'The text property is required', undefined ];
 
-        if ( !severity ) return [ 'The severity property is required', undefined ];
+        if ( !severity || severity.length === 0 ) return [ 'The severity property is required', undefined ];
 
         return [ undefined, new CreateTicketDto( author, text, severity ) ];
     };
