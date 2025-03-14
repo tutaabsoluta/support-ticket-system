@@ -1,5 +1,5 @@
 import { prisma } from "../../data/postgres";
-import { CreateTicketDto, TicketDatasource, TicketEntity, UpdateTicketDto } from "../../domain";
+import { CreateTicketDto, CustomError, TicketDatasource, TicketEntity, UpdateTicketDto } from "../../domain";
 
 
 
@@ -30,7 +30,7 @@ export class TicketDatasourceImpl implements TicketDatasource {
             where: { id }
         });
 
-        if (!ticket) throw `Ticket with id ${id} not found`;
+        if (!ticket) throw new CustomError(`Ticket with id ${id} not found`, 404 );
 
         return TicketEntity.fromObject(ticket);
     };
@@ -50,8 +50,7 @@ export class TicketDatasourceImpl implements TicketDatasource {
     // Delete
     async delete( id: number ): Promise<TicketEntity> {
 
-        const ticket = await this.getById( id );
-        if (!ticket) throw `Ticket with id ${ id } not found`;
+        await this.getById( id );
 
         const deletedTicket = await prisma.ticket.delete({
             where: { id }

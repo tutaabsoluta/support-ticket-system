@@ -1,6 +1,6 @@
 import { Request, Response } from "express";
 import { CreateTicketDto, UpdateTicketDto } from "../../domain/dtos";
-import { CreateTicket, DeleteTicket, GetTicket, GetTickets, TicketRepository, UpdateTicket } from "../../domain";
+import { CreateTicket, CustomError, DeleteTicket, GetTicket, GetTickets, TicketRepository, UpdateTicket } from "../../domain";
 
 
 export class TicketController {
@@ -9,6 +9,15 @@ export class TicketController {
         private readonly ticketRepository: TicketRepository
     ) { }
 
+    private handleError = ( res: Response, error: unknown ) => {
+        if ( error instanceof CustomError ) {
+            res.status( error.statusCode ).json({ error: error.message });
+            return;
+        };
+
+        res.status(500).json({ error: 'Internal server error' })
+    };
+
 
     // Get
     public getTickets = (req: Request, res: Response) =>  {
@@ -16,7 +25,7 @@ export class TicketController {
         new GetTickets( this.ticketRepository )
             .execute()
                 .then( tickets => { res.json( tickets )})
-                .catch( error => res.status(400).json({ error }) )
+                .catch( error => this.handleError( res, error ) )
     };
 
     // Get by id
@@ -27,7 +36,7 @@ export class TicketController {
         new GetTicket( this.ticketRepository )
             .execute(id)
                 .then( ticket => res.json( ticket ) )
-                .catch( error => res.status(404).json({ error }) )
+                .catch( error => this.handleError( res, error ) )
 
     };
 
@@ -42,7 +51,7 @@ export class TicketController {
         new CreateTicket( this.ticketRepository )
             .execute( createTicketDto! )
                 .then( ticket => res.status(201).json( ticket ) )
-                .catch( error => res.status(400).json({ error }))
+                .catch( error => this.handleError( res, error ) )
     };
 
     // Update
@@ -56,7 +65,7 @@ export class TicketController {
         new UpdateTicket( this.ticketRepository )
             .execute( updateTicketDto! )
                 .then( ticket => res.json( ticket ) )
-                .catch( error => res.status(404).json({ error }) )
+                .catch( error => this.handleError( res, error ) )
     
     }
 
@@ -68,7 +77,7 @@ export class TicketController {
         new DeleteTicket( this.ticketRepository )
             .execute(id)
                 .then( ticket => res.json( ticket ) )
-                .catch( error => res.status(404).json({ error }) )
+                .catch( error => this.handleError( res, error ) )
 
     };
 

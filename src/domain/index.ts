@@ -5,6 +5,8 @@ export * from './dtos';
 export * from './entities/ticket.entity';
 export * from './repositories/ticlet.repository';
 
+export * from './errors/custom.error';
+
 export * from './use-cases/ticket/create-ticket.use-case';
 export * from './use-cases/ticket/delete-ticket.use-case';
 export * from './use-cases/ticket/get-ticket.use-case';
