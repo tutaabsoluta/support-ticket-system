@@ -2,6 +2,7 @@ import express, { Router } from 'express';
 import cors, { CorsOptions } from 'cors'
 import compression from 'compression';
 import { envs } from '../config/envs';
+import morgan from 'morgan';
 
 interface Options {
     port: number;
@@ -9,6 +10,7 @@ interface Options {
 };
 
 export class Server {
+
 
     // express instance
     public readonly app = express();
@@ -32,6 +34,8 @@ export class Server {
         this.app.use(express.json());
         this.app.use(express.urlencoded({ extended: true }));
         this.app.use(compression());
+
+        this.app.use( morgan('dev') );
 
         // CORS
         this.app.use(cors(this.corsOptions));
