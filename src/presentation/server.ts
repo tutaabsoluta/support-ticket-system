@@ -38,7 +38,7 @@ export class Server {
         this.app.use( morgan('dev') );
 
         // CORS
-        this.app.use(cors(this.corsOptions));
+        // this.app.use(cors(this.corsOptions));
 
         // Routes
         this.app.use(this.routes);
@@ -52,17 +52,17 @@ export class Server {
     };
 
     // CORS
-    private corsOptions: CorsOptions = {
-        origin: function (origin, callback) {
-            console.log('Origin:', origin);
+    // private corsOptions: CorsOptions = {
+    //     origin: function (origin, callback) {
+    //         console.log('Origin:', origin);
                 
-            if ( !origin || envs.FRONTEND_URL ) {
-                callback(null, true); 
-            } else {
-                callback(new Error('Not allowed by CORS')); 
-            }
-        }
-    };
+    //         if ( !origin || envs.FRONTEND_URL ) {
+    //             callback(null, true); 
+    //         } else {
+    //             callback(new Error('Not allowed by CORS')); 
+    //         }
+    //     }
+    // };
 
     public close() {
         this.serverListener?.close();
