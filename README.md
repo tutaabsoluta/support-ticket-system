@@ -9,6 +9,27 @@ This project is a **Fullstack** ticket management system built using the **PERN*
 - **Database:** Hosted on **NeonTech** using **PostgreSQL**.
 - **Architecture:** Implemented with **Clean Architecture**.
 
+# Technologies Used
+- PostgreSQL for the database
+
+- Express for the backend API
+
+- React and Tailwind CSS for the frontend
+
+- Node.js for the server runtime
+
+- Prisma as the ORM
+
+- Jest for testing
+
+- TypeScript for static typing
+
+- Vercel for frontend deployment
+
+- Render for backend deployment
+
+- NeonTech for database hosting
+
 # Backend
 
 ## Installation
@@ -68,8 +89,6 @@ This project is a **Fullstack** ticket management system built using the **PERN*
 The project follows the **Clean Architecture** pattern, organizing the code into layers:
 
 
-
-
 # Frontend 
 
 ## Installation
@@ -108,23 +127,3 @@ The project follows the **Clean Architecture** pattern, organizing the code into
 | `npm run preview`    | Previews the production build of the project using `vite preview`.                        |
 
 
-Technologies Used
-PostgreSQL for the database
-
-Express for the backend API
-
-React for the frontend
-
-Node.js for the server runtime
-
-Prisma as the ORM
-
-Jest for testing
-
-TypeScript for static typing
-
-Vercel for frontend deployment
-
-Render for backend deployment
-
-NeonTech for database hosting
