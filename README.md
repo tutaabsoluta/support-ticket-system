@@ -9,26 +9,25 @@ This project is a **Fullstack** ticket management system built using the **PERN*
 - **Database:** Hosted on **NeonTech** using **PostgreSQL**.
 - **Architecture:** Implemented with **Clean Architecture**.
 
+## Project link:
+- https://tickets-system-fs.vercel.app/
+
 ## Technologies Used
-- PostgreSQL for the database
 
-- Express for the backend API
+| **Technology**         | **Category**      | **Description**                                   |
+|------------------------|-------------------|---------------------------------------------------|
+| PostgreSQL             | Database          | Relational database for data storage              |
+| Express                | Backend API       | Framework for building APIs in Node.js            |
+| React                  | Frontend          | Library for building interactive user interfaces |
+| Tailwind CSS           | Frontend          | CSS framework for building fast and responsive designs |
+| Node.js                | Backend/Runtime   | JavaScript runtime environment for the server     |
+| Prisma                 | ORM               | ORM for interacting with databases efficiently    |
+| Jest                   | Testing           | Framework for unit and integration testing        |
+| TypeScript             | Language          | Superset of JavaScript for static typing and safety |
+| Vercel                 | Frontend Deploy   | Platform for deploying frontend applications      |
+| Render                 | Backend Deploy    | Platform for deploying backend applications       |
+| NeonTech               | Database Hosting  | PostgreSQL database hosting service               |
 
-- React and Tailwind CSS for the frontend
-
-- Node.js for the server runtime
-
-- Prisma as the ORM
-
-- Jest for testing
-
-- TypeScript for static typing
-
-- Vercel for frontend deployment
-
-- Render for backend deployment
-
-- NeonTech for database hosting
 
 # Backend
 
@@ -88,7 +87,7 @@ This project is a **Fullstack** ticket management system built using the **PERN*
 
 The project follows the **Clean Architecture** pattern, organizing the code into layers:
 
-    support-tickets-system/
+    support-ticket-system/
     ├── __tests__/
     ├── src/
     │   ├── config/
