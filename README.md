@@ -9,7 +9,7 @@ This project is a **Fullstack** ticket management system built using the **PERN*
 - **Database:** Hosted on **NeonTech** using **PostgreSQL**.
 - **Architecture:** Implemented with **Clean Architecture**.
 
-# Technologies Used
+## Technologies Used
 - PostgreSQL for the database
 
 - Express for the backend API
@@ -70,7 +70,7 @@ This project is a **Fullstack** ticket management system built using the **PERN*
    npm run dev
    ```
 
-# Project Scripts
+## Project Scripts
 
 | Command                   | Action                                                                                                 |
 | :------------------------- | :----------------------------------------------------------------------------------------------------- |
@@ -88,6 +88,31 @@ This project is a **Fullstack** ticket management system built using the **PERN*
 
 The project follows the **Clean Architecture** pattern, organizing the code into layers:
 
+├── __tests__/
+├── src/
+│   ├── config/
+│   ├── data/
+│   ├── domain/
+│   │   ├── datasources/
+│   │   ├── dtos/
+│   │   ├── entities/
+│   │   ├── errors/
+│   │   ├── repositories/
+│   │   ├── use-cases/
+│   │   └── index.ts
+│   ├── infrastructure/
+│   │   ├── datasources/
+│   │   └── repositories/
+│   ├── presentation/
+│   │   ├── tickets/
+│   │   └── server.ts
+│   ├── app.ts
+│   └── routes.ts
+├── .env
+├── .env.test
+├── docker-compose.yml
+├── package.json
+└── tsconfig.json
 
 # Frontend 
 
@@ -117,7 +142,7 @@ The project follows the **Clean Architecture** pattern, organizing the code into
    npm run dev
    ```
 
-# Project Scripts
+## Project Scripts
 
 | Command             | Action                                                                                   |
 | :------------------- | :---------------------------------------------------------------------------------------- |
