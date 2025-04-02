@@ -35,8 +35,8 @@ This project is a **Fullstack** ticket management system built using the **PERN*
 1. **Clone the repository:**
 
    ```bash
-   git clone https://github.com/tutaabsoluta/support-ticket-system.git
-   cd support-ticket-system
+   git clone https://github.com/tutaabsoluta/fs-tickets-pern.git
+   cd server
    ```
 
 2. **Install dependencies:**
@@ -116,11 +116,10 @@ The project follows the **Clean Architecture** pattern, organizing the code into
 # Frontend 
 
 ## Installation
-1. **Clone the repository:**
+1. **Change to the client folder:**
 
    ```bash
-   git clone https://github.com/tutaabsoluta/fs-tickets-pern/tree/main/client.git
-   cd fs-tickets-pern/client
+   cd client
    ```
 
 2. **Install dependencies:**
