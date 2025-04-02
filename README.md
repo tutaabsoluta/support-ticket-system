@@ -87,8 +87,8 @@ This project is a **Fullstack** ticket management system built using the **PERN*
 ## Folder Structure
 
 The project follows the **Clean Architecture** pattern, organizing the code into layers:
-
 ├── __tests__/
+
 ├── src/
 │   ├── config/
 │   ├── data/
@@ -100,18 +100,26 @@ The project follows the **Clean Architecture** pattern, organizing the code into
 │   │   ├── repositories/
 │   │   ├── use-cases/
 │   │   └── index.ts
+│   
 │   ├── infrastructure/
 │   │   ├── datasources/
 │   │   └── repositories/
+│   
 │   ├── presentation/
 │   │   ├── tickets/
 │   │   └── server.ts
+│   
 │   ├── app.ts
 │   └── routes.ts
+
 ├── .env
+
 ├── .env.test
+
 ├── docker-compose.yml
+
 ├── package.json
+
 └── tsconfig.json
 
 # Frontend 
