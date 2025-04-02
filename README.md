@@ -72,20 +72,41 @@ The project follows the **Clean Architecture** pattern, organizing the code into
 
 # Frontend 
 
-npm install
-Set up the environment variables:
+## Installation
+1. **Clone the repository:**
 
-Copy .env.example to .env and modify the variables as needed for your local setup.
+   ```bash
+   git clone https://github.com/tutaabsoluta/fs-tickets-pern/tree/main/client.git
+   cd fs-tickets-pern/client
+   ```
 
-Run the development server:
+2. **Install dependencies:**
 
-# Backend
-npm run dev
+   ```bash
+   npm install
+   ```
 
-# Frontend (in a separate terminal window)
-cd client
-npm start
-Your local development environment should now be up and running.
+
+3. **Set up environment variables:**
+
+   - Copy `.env.template` to `.env` and configure the API URL.
+
+
+4. **Run the project:**
+
+   ```bash
+   npm run dev
+   ```
+
+# Project Scripts
+
+| Command             | Action                                                                                   |
+| :------------------- | :---------------------------------------------------------------------------------------- |
+| `npm run dev`        | Starts the development server with `vite`.                                                |
+| `npm run build`      | Runs TypeScript compilation (`tsc -b`) and then builds the project with `vite`.           |
+| `npm run lint`       | Runs ESLint on the project to check for any code quality issues.                          |
+| `npm run preview`    | Previews the production build of the project using `vite preview`.                        |
+
 
 Technologies Used
 PostgreSQL for the database
