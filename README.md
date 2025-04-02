@@ -88,31 +88,31 @@ This project is a **Fullstack** ticket management system built using the **PERN*
 
 The project follows the **Clean Architecture** pattern, organizing the code into layers:
 
-├── __tests__/
-├── src/
-│   ├── config/
-│   ├── data/
-│   ├── domain/
-│   │   │── datasources
-│   │   │── dtos
-│   │   │── entities
-│   │   │── errors
-│   │   │── repositories
-│   │   └── use-cases
-│   │   └── index.ts
-│   ├── infrastructure/
-│   │   │── datasources
-│   │   └── repositories
-│   ├── presentation/
-│   │   │── tickets
-│   │   └── server.ts
-│   └── app.ts
-│   └── routes.ts
-├── .env
-|-- .env.test
-├── docker-compose.yml
-├── package.json
-└── tsconfig.json
+    support-tickets-system/
+    ├── __tests__/
+    ├── src/
+    │   ├── config/
+    │   ├── data/
+    │   ├── domain/
+    │   │   │── datasources
+    │   │   │── dtos
+    │   │   │── entities
+    │   │   │── errors
+    │   │   │── repositories
+    │   │   └── use-cases
+    │   ├── infrastructure/
+    │   │   │── datasources
+    │   │   └── repositories
+    │   ├── presentation/
+    │   │   │── tickets
+    │   │   └── server.ts
+    │   └── app.ts
+    |   └── routes.ts
+    ├── .env
+    ├── docker-compose.yml
+    ├── package.json
+    └── tsconfig.json
+
 
 # Frontend 
 
