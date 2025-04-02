@@ -1,74 +1,77 @@
 # P.E.R.N Support Ticket System with Clean Architecture
 
-# Ticket System
-
 ## Description
 
 This project is a **Fullstack** ticket management system built using the **PERN** stack (PostgreSQL, Express, React, Node.js). The application allows efficient ticket management, utilizing a **Clean Architecture** that promotes scalability and maintainability of the code.
 
-- **Frontend:** Developed in **React**, deployed on **Vercel**.
+- **Frontend:** Developed in **React** and **TailwindCSS**, deployed on **Vercel**.
 - **Backend:** Developed in **Node.js** with **Express**, deployed on **Render**.
 - **Database:** Hosted on **NeonTech** using **PostgreSQL**.
 - **Architecture:** Implemented with **Clean Architecture**.
+
+# Backend
+
+## Installation
+1. **Clone the repository:**
+
+   ```bash
+   git clone https://github.com/tutaabsoluta/support-ticket-system.git
+   cd support-ticket-system
+   ```
+
+2. **Install dependencies:**
+
+   ```bash
+   npm install
+   ```
+
+
+3. **Set up environment variables:**
+
+   - Copy `.env.template` to `.env` and configure the database.
+
+4. **Start Docker**
+   ```bash
+   docker compose up -d
+   ```
+
+5. **Database Setup:**
+
+   - Use Prisma to create the schema of the database.
+
+   ```bash
+   npm run prisma:migrate:prod
+   ```
+
+6. **Run the project:**
+
+   ```bash
+   npm run dev
+   ```
+
+# Project Scripts
+
+| Command                   | Action                                                                                                 |
+| :------------------------- | :----------------------------------------------------------------------------------------------------- |
+| `npm run test`             | Runs Prisma migrations for the test environment and then runs tests with Jest.                         |
+| `npm run test:watch`       | Runs Prisma migrations for the test environment and then runs Jest tests in watch mode.                |
+| `npm run test:coverage`    | Runs Prisma migrations for the test environment and then runs Jest tests with coverage.                |
+| `npm run dev`              | Starts the development server with `tsnd`, respawning on changes and clearing the output in `src/app.ts`. |
+| `npm run build`            | Deletes the `./dist` folder and compiles TypeScript code.                                              |
+| `npm run start`            | Builds the project and then starts the server with the `dist/app.js` file.                             |
+| `npm run prisma:migrate:prod` | Runs Prisma migrations for the production environment.                                               |
+| `npm run prisma:migrate:test` | Runs Prisma migrations for the test environment using `.env.test`.                                      |
+
 
 ## Folder Structure
 
 The project follows the **Clean Architecture** pattern, organizing the code into layers:
 
-/config # Global project configuration (environment variables, Prisma setup, etc.) /data # Data layer, where data access and interactions with the database occur /domain # Business logic, entities, and core domain functionality /infrastructure # Interfaces with external systems, like APIs and databases /presentation # The presentation layer, including controllers, routes, and UI logic
-
-## Scripts
-
-The following npm scripts are available to run the project:
-
-- `test`: Runs the tests after migrating the database for the test environment.
-  ```bash
-  npm run prisma:migrate:test && jest
-test:watch: Runs tests and watches for file changes in the test environment.
-
-npm run prisma:migrate:test && jest --watch
-test:coverage: Runs tests and generates a coverage report after migrating the database for the test environment.
-
-npm run prisma:migrate:test && jest --coverage
-dev: Runs the development server with automatic restart on code changes.
-
-tsnd --respawn --clear src/app.ts
-build: Builds the project for production.
-
-rimraf ./dist && tsc
-start: Builds the project and starts the server.
-
-npm run build && node dist/app.js
-prisma:migrate:prod: Deploys migrations to the production database.
 
 
-prisma migrate deploy
-prisma:migrate:test: Deploys migrations to the test database using environment variables from .env.test.
 
+# Frontend 
 
-dotenv -e .env.test -- npx prisma migrate deploy
-
-Deployment
-Frontend: The frontend is deployed on Vercel. Any changes pushed to the main branch will automatically trigger a deployment.
-
-Backend: The backend is hosted on Render, ensuring a scalable and reliable environment for the application.
-
-Database: The PostgreSQL database is hosted on NeonTech, providing a cloud-based solution for data storage and management.
-
-Installation
-To get started locally, follow these steps:
-
-Clone the repository:
-
-git clone https://github.com/yourusername/ticket-system.git
-cd ticket-system
-Install dependencies for both frontend and backend:
-
-# Backend
-npm install
-
-# Frontend (in a separate terminal window)
-cd client
 npm install
 Set up the environment variables:
 
